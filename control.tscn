@@ -1,0 +1,106 @@
+[gd_scene load_steps=4 format=3 uid="uid://dty4ctygipo2h"]
+
+[ext_resource type="Script" path="res://GUI.gd" id="1_c5q18"]
+[ext_resource type="Texture2D" uid="uid://0mkibmi6ei15" path="res://mahou-shoujo-magical-destroyers-episode-2-sub_001.png" id="2_geck3"]
+[ext_resource type="FontFile" uid="uid://h5w1d58uxep6" path="res://MapleMono-NF-Regular.ttf" id="3_c7tna"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchor_right = 0.891
+anchor_bottom = 0.775
+offset_top = -1.0
+offset_right = -250.432
+offset_bottom = -0.200012
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_c5q18")
+
+[node name="container" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.158
+anchor_bottom = 0.91
+offset_top = -2.0
+offset_right = 325.662
+offset_bottom = 219.21
+
+[node name="TextureRect" type="TextureRect" parent="container"]
+z_index = -1
+layout_mode = 2
+offset_left = -354.0
+offset_top = -140.0
+offset_right = 1566.0
+offset_bottom = 940.0
+texture = ExtResource("2_geck3")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="container"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -363.135
+offset_top = 86.53
+offset_right = 305.865
+offset_bottom = 174.53
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Start" type="Button" parent="container/VBoxContainer"]
+layout_mode = 2
+text = "Start"
+
+[node name="Stop" type="Button" parent="container/VBoxContainer"]
+layout_mode = 2
+text = "Stop
+"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="container"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -363.135
+offset_top = -30.47
+offset_right = 307.865
+offset_bottom = 73.53
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label2" type="Label" parent="container/VBoxContainer2"]
+layout_mode = 2
+text = "Weak vibration"
+
+[node name="L_slider" type="HSlider" parent="container/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="container/VBoxContainer2"]
+layout_mode = 2
+text = "Strong vibration"
+
+[node name="R_slider" type="HSlider" parent="container/VBoxContainer2"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="container"]
+z_index = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.006
+anchor_right = 1.0
+anchor_bottom = 0.074
+offset_left = 214.346
+offset_top = 137.0
+offset_right = -307.27
+offset_bottom = 280.758
+grow_horizontal = 2
+theme_override_fonts/normal_font = ExtResource("3_c7tna")
+theme_override_font_sizes/normal_font_size = 54
+text = "->Good Vibes<-"
+
+[connection signal="button_up" from="container/VBoxContainer/Start" to="." method="_on_start_button_up"]
+[connection signal="button_up" from="container/VBoxContainer/Stop" to="." method="_on_stop_button_up"]
+[connection signal="value_changed" from="container/VBoxContainer2/L_slider" to="." method="_on_l_slider_value_changed"]
+[connection signal="value_changed" from="container/VBoxContainer2/R_slider" to="." method="_on_r_slider_value_changed"]
